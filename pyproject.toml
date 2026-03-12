@@ -1,0 +1,36 @@
+[project]
+name = "locus-ai"
+version = "0.1.0"
+description = "locus.ai — Cell Localization Q&A fine-tuning project"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  # Data pipeline
+  "pandas>=2.0",
+  "requests>=2.31",
+  "tqdm>=4.66",
+  # Training (GPU — install manually in Colab for CUDA build)
+  "transformers>=4.40",
+  "datasets>=2.19",
+  "peft>=0.10",
+  "trl>=0.8",
+  "accelerate>=0.29",
+  "sentencepiece",
+  "protobuf",
+  # Experiment tracking
+  "wandb>=0.16",
+]
+
+[project.optional-dependencies]
+gpu = [
+  # Install separately in Colab — requires CUDA wheel
+  "bitsandbytes>=0.43",
+  "torch>=2.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["scripts"]
