@@ -1,4 +1,4 @@
-# CellLocQA 🔬
+# locus.ai 🔬
 
 > *Fine-tuned Qwen2.5-3B on 6,000 cell localization Q&A pairs generated from GO Cellular Component annotations and Human Protein Atlas experimental data using QLoRA — improving subcellular location accuracy from 35% to 73% and reducing hallucination rate from 34% to 11%. Built a pure Node.js inference server using node-llama-cpp with 4 typed endpoints returning structured JSON at sub-300ms latency.*
 
@@ -6,7 +6,7 @@
 
 ## What It Does
 
-Given a protein name or UniProt accession, **CellLocQA** answers:
+Given a protein name or UniProt accession, **locus.ai** answers:
 
 | Question | Example |
 |---|---|
@@ -59,7 +59,7 @@ Only experimentally validated annotations are used (evidence codes: EXP, IDA, IM
 ## Project Structure
 
 ```
-celllocqa/
+locus.ai/
 ├── data/
 │   ├── raw/                    # Downloaded source files
 │   │   ├── goa_human.gaf
@@ -99,8 +99,8 @@ celllocqa/
 
 ```bash
 # Clone and set up Python environment
-git clone https://github.com/your-username/celllocqa.git
-cd celllocqa
+git clone https://github.com/your-username/locus.ai.git
+cd locus.ai
 
 python -m venv .venv
 source .venv/bin/activate
@@ -138,7 +138,7 @@ Training time: **~85 minutes · 3 epochs · ~$10 Colab compute**.
 
 ```bash
 # Copy model to server directory
-cp celllocqa-qwen-3b-q4.gguf server/models/
+cp locus.ai-qwen-3b-q4.gguf server/models/
 
 cd server
 npm install
@@ -167,7 +167,7 @@ curl -X POST http://localhost:3000/protein/locate \
   "disease_link": "Nuclear export of TP53 is a key mechanism in cancer progression — cytoplasmic sequestration inactivates its tumor suppressor function.",
   "confidence": "high",
   "latency_ms": 284,
-  "model": "celllocqa-qwen2.5-3b"
+  "model": "locus.ai-qwen2.5-3b"
 }
 ```
 
@@ -260,7 +260,7 @@ A model that correctly localizes proteins — and knows what goes wrong when tha
 Deploy the inference server to [Render](https://render.com) with the included `render.yaml`:
 
 ```bash
-git add . && git commit -m "CellLocQA inference server"
+git add . && git commit -m "locus.ai inference server"
 # Push to GitHub, connect repo to Render
 # Upload GGUF (~2GB) to Render persistent disk via dashboard
 ```
