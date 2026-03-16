@@ -123,3 +123,8 @@ htmlcov/
 *.zip          # downloaded archives
 *.gz           # downloaded archives
 *.tar.gz
+
+
+merged_model
+outputs_qwen35
+qwen_locus.ai
