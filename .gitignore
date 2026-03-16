@@ -128,3 +128,4 @@ htmlcov/
 merged_model
 outputs_qwen35
 qwen_locus.ai
+llama.cpp
